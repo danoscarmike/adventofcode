@@ -5,7 +5,7 @@ def intcode_computer(input):
     opcode_index = 0
     opcode = input[opcode_index]
 
-    while (opcode_index < (len(input) - 3) and opcode != 99):
+    while opcode_index < (len(input) - 3) and opcode != 99:
         param_one = input[input[opcode_index + 1]]
         param_two = input[input[opcode_index + 2]]
         if opcode == 1:
@@ -24,10 +24,10 @@ if __name__ == "__main__":
     with open(path_to_input + "/2.txt", "r") as f:
         line = f.read()
         input = line.split(",")
-    
+
     for x in range(0, len(input)):
         input[x] = int(input[x].rstrip())
-    
+
     input[1] = 12
     input[2] = 2
 

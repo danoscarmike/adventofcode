@@ -16,7 +16,7 @@ def manhattan_distance(port):
 
 
 def get_wire_path(instructions):
-    '''Converts a list of instructions to a set
+    """Converts a list of instructions to a set
     of ports visited by a wire
 
     Args:
@@ -26,7 +26,7 @@ def get_wire_path(instructions):
     Returns:
         ((int,int)): Set of coordinates of ports visited
         by the wire
-    '''
+    """
     path = set()
     x = 0
     y = 0
@@ -37,10 +37,10 @@ def get_wire_path(instructions):
             i = 0
             while i <= steps:
                 i += 1
-                if (x+i, y) == (0, 0):
+                if (x + i, y) == (0, 0):
                     continue
                 else:
-                    path.add((x+i, y))
+                    path.add((x + i, y))
             x += steps
         if direction == "L":
             i = 0
