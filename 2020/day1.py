@@ -1,4 +1,4 @@
-from helpers import array_from_list
+from helpers.input import int_array_from_list
 
 
 def part1(data):
@@ -26,7 +26,7 @@ def part2(data):
 
 
 if __name__ == "__main__":
-    data = array_from_list("1.txt")
+    data = int_array_from_list("1.txt")
 
     product2 = part1(data)
     print(product2)
