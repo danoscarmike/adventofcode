@@ -1,17 +1,23 @@
 import os
 
 
-def int_array_from_list(path):
+def int_array_from_list(path, test=False):
+    directory = "/input/"
+    if test:
+        directory = "/test_data/"
     input = []
-    with open(os.getcwd() + "/input/" + path, "r") as f:
+    with open(os.getcwd() + directory + path, "r") as f:
         for line in f.readlines():
             input.append(int(line.rstrip()))
     return input
 
 
-def str_array_from_list(path):
+def str_array_from_list(path, test=False):
+    directory = "/input/"
+    if test:
+        directory = "/test_data/"
     input = []
-    with open(os.getcwd() + "/input/" + path, "r") as f:
+    with open(os.getcwd() + directory + path, "r") as f:
         for line in f.readlines():
             input.append(line.rstrip())
     return input
