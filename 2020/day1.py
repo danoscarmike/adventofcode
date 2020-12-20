@@ -27,9 +27,5 @@ def part2(data):
 
 if __name__ == "__main__":
     data = int_array_from_list("1.txt")
-
-    product2 = part1(data)
-    print(product2)
-
-    product3 = part2(data)
-    print(product3)
+    print(part1(data))
+    print(part2(data))

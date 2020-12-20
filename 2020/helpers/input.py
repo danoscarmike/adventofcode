@@ -42,4 +42,3 @@ def dict_array_from_file(path, test=False):
         if len(passport) > 0:
             data.append(passport)
     return data
-

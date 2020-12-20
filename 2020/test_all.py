@@ -1,4 +1,4 @@
-import day1, day2, day3, day4
+import day1, day2, day3, day4, day5
 
 from helpers.input import *
 
@@ -38,12 +38,12 @@ def test_day4_part1():
 
 
 def test_day4_valid_year():
-    assert day4.is_valid_year("2003","byr") == False
-    assert day4.is_valid_year("1919","byr") == False
-    assert day4.is_valid_year("2000","byr")
-    assert day4.is_valid_year("2a0b","byr") == False
-    assert day4.is_valid_year("199","byr") == False
-    assert day4.is_valid_year("20011","byr") == False
+    assert day4.is_valid_year("2003", "byr") == False
+    assert day4.is_valid_year("1919", "byr") == False
+    assert day4.is_valid_year("2000", "byr")
+    assert day4.is_valid_year("2a0b", "byr") == False
+    assert day4.is_valid_year("199", "byr") == False
+    assert day4.is_valid_year("20011", "byr") == False
 
 
 def test_day4_valid_ecl():
@@ -79,3 +79,15 @@ def test_day4_valid_pid():
 
 def test_day4_part2():
     assert day4.part2(data4b) == 4
+
+
+def test_day5_part1():
+    bp1 = "BFFFBBFRRR"  # row 70, column 7, seat ID 567
+    bp2 = "FFFBBBFRRR"  # row 14, column 7, seat ID 119
+    bp3 = "BBFFBBFRLL"  # row 102, column 4, seat ID 820
+    assert day5.find_row(bp1) == 70
+    assert day5.find_seat(bp1) == 7
+    assert day5.find_row(bp2) == 14
+    assert day5.find_seat(bp2) == 7
+    assert day5.find_row(bp3) == 102
+    assert day5.find_seat(bp3) == 4

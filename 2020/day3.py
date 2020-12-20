@@ -4,7 +4,7 @@ from helpers.input import str_array_from_list
 
 
 def tree_strikes(slope, data):
-    width = len(data[0]) # 31
+    width = len(data[0])  # 31
     row = 0
     col = 0
     tree_count = 0
@@ -22,14 +22,14 @@ def tree_strikes(slope, data):
 
 
 def part1(data):
-    return tree_strikes((3,1),data)
+    return tree_strikes((3, 1), data)
 
 
 def part2(data):
-    slopes = [(1,1),(3,1),(5,1),(7,1),(1,2)]
+    slopes = [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]
     trees = []
     for slope in slopes:
-        trees.append(tree_strikes(slope,data))
+        trees.append(tree_strikes(slope, data))
     return math.prod(trees)
 
 
