@@ -1,23 +1,45 @@
 import os
 
 
-def int_array_from_list(path, test=False):
-    directory = "/input/"
+def get_dir(test):
     if test:
-        directory = "/test_data/"
-    input = []
+        return "/test_data/"
+    return "/input/"
+
+
+def int_array_from_list(path, test=False):
+    directory = get_dir(test)
+    data = []
     with open(os.getcwd() + directory + path, "r") as f:
         for line in f.readlines():
-            input.append(int(line.rstrip()))
-    return input
+            data.append(int(line.rstrip()))
+    return data
 
 
 def str_array_from_list(path, test=False):
-    directory = "/input/"
-    if test:
-        directory = "/test_data/"
-    input = []
+    directory = get_dir(test)
+    data = []
     with open(os.getcwd() + directory + path, "r") as f:
         for line in f.readlines():
-            input.append(line.rstrip())
-    return input
+            data.append(line.rstrip())
+    return data
+
+
+def dict_array_from_file(path, test=False):
+    directory = get_dir(test)
+    data = []
+    with open(os.getcwd() + directory + path, "r") as f:
+        passport = {}
+        for line in f.readlines():
+            if line == "\n" or "":
+                data.append(passport)
+                passport = {}
+            else:
+                tokens = line.split(" ")
+                for token in tokens:
+                    kv_pair = token.split(":")
+                    passport[kv_pair[0]] = kv_pair[1].rstrip()
+        if len(passport) > 0:
+            data.append(passport)
+    return data
+
