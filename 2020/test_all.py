@@ -1,4 +1,4 @@
-import day1, day2, day3, day4, day5
+import day1, day2, day3, day4, day5, day6
 
 from helpers.input import *
 
@@ -91,3 +91,13 @@ def test_day5_part1():
     assert day5.find_seat(bp2, False) == 7
     assert day5.find_seat(bp3) == 102
     assert day5.find_seat(bp3, False) == 4
+
+
+def test_day6_part1():
+    data = dict_array_from_file("6.txt", test=True, parsing=6)
+    assert day6.part1(data) == 11
+
+
+def test_day6_part2():
+    data = dict_array_from_file("6.txt", test=True, parsing=6)
+    assert day6.part2(data) == 6

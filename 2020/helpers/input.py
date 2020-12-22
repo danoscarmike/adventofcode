@@ -25,20 +25,25 @@ def str_array_from_list(path, test=False):
     return data
 
 
-def dict_array_from_file(path, test=False):
+def dict_array_from_file(path, test=False, parsing=4):
     directory = get_dir(test)
     data = []
     with open(os.getcwd() + directory + path, "r") as f:
-        passport = {}
+        dictionary = {}
         for line in f.readlines():
             if line == "\n" or "":
-                data.append(passport)
-                passport = {}
-            else:
+                data.append(dictionary)
+                dictionary = {}
+            elif parsing == 4:
                 tokens = line.split(" ")
                 for token in tokens:
                     kv_pair = token.split(":")
-                    passport[kv_pair[0]] = kv_pair[1].rstrip()
-        if len(passport) > 0:
-            data.append(passport)
+                    dictionary[kv_pair[0]] = kv_pair[1].rstrip()
+            elif parsing == 6:
+                if len(dictionary) == 0:
+                    dictionary = {"answers": [line.rstrip()]}
+                else:
+                    dictionary["answers"].append(line.rstrip())
+        if len(dictionary) > 0:
+            data.append(dictionary)
     return data
