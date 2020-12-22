@@ -1,4 +1,4 @@
-import day1, day2, day3, day4, day5, day6
+import day1, day2, day3, day4, day5, day6, day7
 
 from helpers.input import *
 
@@ -101,3 +101,8 @@ def test_day6_part1():
 def test_day6_part2():
     data = dict_array_from_file("6.txt", test=True, parsing=6)
     assert day6.part2(data) == 6
+
+
+def test_day7_part1():
+    data = str_array_from_list("7.txt", test=True)
+    assert day7.part1(data, "shiny gold") == 4
