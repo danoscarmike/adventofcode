@@ -85,9 +85,9 @@ def test_day5_part1():
     bp1 = "BFFFBBFRRR"  # row 70, column 7, seat ID 567
     bp2 = "FFFBBBFRRR"  # row 14, column 7, seat ID 119
     bp3 = "BBFFBBFRLL"  # row 102, column 4, seat ID 820
-    assert day5.find_row(bp1) == 70
-    assert day5.find_seat(bp1) == 7
-    assert day5.find_row(bp2) == 14
-    assert day5.find_seat(bp2) == 7
-    assert day5.find_row(bp3) == 102
-    assert day5.find_seat(bp3) == 4
+    assert day5.find_seat(bp1) == 70
+    assert day5.find_seat(bp1, False) == 7
+    assert day5.find_seat(bp2) == 14
+    assert day5.find_seat(bp2, False) == 7
+    assert day5.find_seat(bp3) == 102
+    assert day5.find_seat(bp3, False) == 4
