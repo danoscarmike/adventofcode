@@ -106,3 +106,10 @@ def test_day6_part2():
 def test_day7_part1():
     data = str_array_from_list("7.txt", test=True)
     assert day7.part1(data, "shiny gold") == 4
+
+
+def test_day7_part2():
+    data1 = str_array_from_list("7.txt", test=True)
+    assert day7.part2(data1, "shiny gold") == 32
+    data2 = str_array_from_list("7b.txt", test=True)
+    assert day7.part2(data2, "shiny gold") == 126
