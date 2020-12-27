@@ -13,7 +13,7 @@ def get_all_bags(data):
         while pointer < (len(tokens) - 2):
             try:
                 bag_count = int(tokens[pointer])
-                bag_color = tokens[pointer+1] + " " + tokens[pointer+2]
+                bag_color = tokens[pointer + 1] + " " + tokens[pointer + 2]
                 all_bags[outer_bag].append((bag_color, bag_count))
             except:
                 if tokens[pointer] == "no":
@@ -38,7 +38,7 @@ def count_inner_bags(bags, color):
     total = 0
     if len(bags[color]) > 0:
         for bag in bags[color]:
-            total += bag[1] + bag[1]*count_inner_bags(bags, bag[0])
+            total += bag[1] + bag[1] * count_inner_bags(bags, bag[0])
     return total
 
 
