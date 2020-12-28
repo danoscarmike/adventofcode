@@ -128,3 +128,8 @@ def test_day8_part2():
 def test_day9_part1():
     data = int_array_from_list("9.txt", test=True)
     assert day9.part1(data, 5) == 127
+
+
+def test_day9_part2():
+    data = int_array_from_list("9.txt", test=True)
+    assert day9.part2(data, 127) == 62

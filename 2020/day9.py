@@ -12,6 +12,33 @@ def part1(data, pre_size):
             return data[i]
 
 
+def part2(data, target):
+    sum = 0
+    summands = []
+    i = 0
+    while i < len(data):
+        if data[i] > target:
+            sum = 0
+            summands = []
+            i += 1
+        elif sum + data[i] > target:
+            sum += data[i]
+            summands.append(data[i])
+            while sum > target:
+                sum -= summands[0]
+                summands.pop(0)
+            i += 1
+        elif sum + data[i] < target:
+            sum += data[i]
+            summands.append(data[i])
+            i += 1
+        if sum == target:
+            return max(summands) + min(summands)
+    return -1
+
+
 if __name__ == "__main__":
     data = int_array_from_list("9.txt")
-    print(part1(data, 25))
+    target = part1(data, 25)
+    print(target)
+    print(part2(data, target))
