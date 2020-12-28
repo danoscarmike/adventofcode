@@ -1,4 +1,4 @@
-import day1, day2, day3, day4, day5, day6, day7, day8
+import day1, day2, day3, day4, day5, day6, day7, day8, day9
 
 from helpers.input import *
 
@@ -123,3 +123,8 @@ def test_day8_part1():
 def test_day8_part2():
     data = str_array_from_list("8.txt", test=True)
     assert day8.part2(data) == 8
+
+
+def test_day9_part1():
+    data = int_array_from_list("9.txt", test=True)
+    assert day9.part1(data, 5) == 127
