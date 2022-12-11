@@ -13,11 +13,11 @@ func main() {
 
 	switch puzzle {
 	case "1a":
-		answer, err = day1a("input/1a.txt")
+		answer, err = day1("input/1.txt", 1)
+	case "1b":
+		answer, err = day1("input/1.txt", 3)
 	}
 
-	if err != nil {
-		panic(err)
-	}
+	check_error_panic(err)
 	fmt.Printf("%s: %d\n", puzzle, answer)
 }

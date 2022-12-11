@@ -7,9 +7,7 @@ import (
 
 func readLines(filepath string) ([]string, error) {
 	file, err := os.Open(filepath)
-	if err != nil {
-		return nil, err
-	}
+	check_error_panic(err)
 	defer file.Close()
 
 	var input []string

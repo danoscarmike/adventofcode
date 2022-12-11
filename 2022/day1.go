@@ -1,32 +1,39 @@
 package main
 
 import (
+	"container/heap"
 	"strconv"
 )
 
-func day1a(inputpath string) (int, error) {
+func day1(inputpath string, k int) (int, error) {
 	input, err := readLines(string(inputpath))
-	if err != nil {
-		return -1, err
-	}
-	max := 0
+	check_error_panic(err)
+	h := &IntHeap{}
+	heap.Init(h)
 	cals := 0
 	for _, token := range input {
 		if token == "" {
-			if cals > max {
-				max = cals
+			heap.Push(h, cals)
+			if h.Len() > k {
+				heap.Pop(h)
 			}
 			cals = 0
 		} else {
-			item, err := strconv.Atoi(token)
-			if err != nil {
-				return -1, err
-			}
-			cals += item
+			item_int, err := strconv.Atoi(token)
+			check_error_panic(err)
+			cals += item_int
 		}
 	}
-	if cals > max {
-		max = cals
+	// push the last Elf's data (flush the counter)
+	heap.Push(h, cals)
+	if h.Len() > k {
+		heap.Pop(h)
 	}
-	return max, err
+
+	answer := 0
+	for _, val := range *h {
+		answer += val
+	}
+
+	return answer, nil
 }
