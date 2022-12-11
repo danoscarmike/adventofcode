@@ -8,7 +8,7 @@ import (
 func main() {
 
 	puzzle := os.Args[1]
-	var answer int
+	var answer interface{}
 	var err error = nil
 
 	switch puzzle {
@@ -28,8 +28,12 @@ func main() {
 		answer, err = day4("input/4.txt", "complete")
 	case "4b":
 		answer, err = day4("input/4.txt", "partial")
+	case "5a":
+		answer, err = day5("input/5.txt", false)
+	case "5b":
+		answer, err = day5("input/5.txt", true)
 	}
 
 	check_error_panic(err)
-	fmt.Printf("%s: %d\n", puzzle, answer)
+	fmt.Println(answer)
 }
