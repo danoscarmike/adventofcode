@@ -20,6 +20,10 @@ func main() {
 		answer, err = day2a("input/2.txt")
 	case "2b":
 		answer, err = day2b("input/2.txt")
+	case "3a":
+		answer, err = day3a("input/3.txt")
+	case "3b":
+		answer, err = day3b("input/3.txt")
 	}
 
 	check_error_panic(err)
