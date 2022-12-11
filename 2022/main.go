@@ -24,6 +24,10 @@ func main() {
 		answer, err = day3a("input/3.txt")
 	case "3b":
 		answer, err = day3b("input/3.txt")
+	case "4a":
+		answer, err = day4("input/4.txt", "complete")
+	case "4b":
+		answer, err = day4("input/4.txt", "partial")
 	}
 
 	check_error_panic(err)
