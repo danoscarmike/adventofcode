@@ -1,14 +1,5 @@
 package main
 
-func contains(s []rune, c rune) (int, bool) {
-	for i, j := range s {
-		if j == c {
-			return i, true
-		}
-	}
-	return -1, false
-}
-
 func day6(inputpath string, markersize int) (int, error) {
 	input, err := readLines(string(inputpath))
 	check_error_panic(err)
