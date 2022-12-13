@@ -49,7 +49,7 @@ func day7(inputpath string, part string) (int, error) {
 
 	switch part {
 	case "a":
-		answer := 0
+		answer = 0
 		for _, v := range fs {
 			if v <= 100000 {
 				answer += v
