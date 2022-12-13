@@ -36,6 +36,10 @@ func main() {
 		answer, err = day6("input/6.txt", 4)
 	case "6b":
 		answer, err = day6("input/6.txt", 14)
+	case "7a":
+		answer, err = day7("input/7.txt", "a")
+	case "7b":
+		answer, err = day7("input/7.txt", "b")
 	}
 
 	check_error_panic(err)
