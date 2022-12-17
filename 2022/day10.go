@@ -6,81 +6,7 @@ import (
 	"strings"
 )
 
-// func day10(inputpath string) (int, error) {
-// 	input, err := readLines(string(inputpath))
-// 	check_error_panic(err)
-
-// 	xreg := 1
-// 	cycle := 0
-// 	cycleMap := make(map[int]int)
-// 	crt := make([]string, 40*6)
-// 	crt_loc := 0
-
-// 	for _, line := range input {
-// 		inst := strings.Split(line, " ")
-// 		switch inst[0] {
-// 		case "addx":
-// 			if sprite_overlap(crt_loc, xreg) {
-// 				crt[crt_loc] = "#"
-// 			} else {
-// 				crt[crt_loc] = "."
-// 			}
-// 			crt_loc += 1
-
-// 			cycleMap[cycle+1] = xreg
-
-// 			if sprite_overlap(crt_loc, xreg) {
-// 				crt[crt_loc] = "#"
-// 			} else {
-// 				crt[crt_loc] = "."
-// 			}
-// 			crt_loc += 1
-
-// 			var val int
-// 			if val, err = strconv.Atoi(inst[1]); err != nil {
-// 				panic(err)
-// 			}
-// 			xreg += val
-// 			cycle += 2
-
-// 		case "noop":
-
-// 			if sprite_overlap(crt_loc, xreg) {
-// 				crt[crt_loc] = "#"
-// 			} else {
-// 				crt[crt_loc] = "."
-// 			}
-// 			crt_loc += 1
-// 			cycle += 1
-// 		}
-// 		cycleMap[cycle] = xreg
-// 		fmt.Println(crt_loc)
-// 	}
-
-// 	signalCycles := []int{20, 60, 100, 140, 180, 220}
-// 	answer := 0
-
-// 	for _, s := range signalCycles {
-// 		answer += (s * cycleMap[s])
-// 	}
-
-// 	crt_rows := make([][]string, 6)
-// 	for row := range crt_rows {
-// 		crt_rows[row] = make([]string, 40)
-// 	}
-
-// 	for idx, pixel := range crt {
-// 		crt_rows[idx/40][idx%40] = pixel
-// 	}
-
-// 	for _, pixel := range crt_rows {
-// 		fmt.Println(pixel)
-// 	}
-
-// 	return answer, nil
-// }
-
-func day10(inputpath string) (int, error) {
+func day10(inputpath string, part string) (int, error) {
 	input, err := readLines(string(inputpath))
 	check_error_panic(err)
 
@@ -130,21 +56,24 @@ func day10(inputpath string) (int, error) {
 
 	answer := 0
 
-	for _, s := range signalCycles {
-		answer += (s * cycleMap[s])
-	}
+	switch part {
+	case "a":
+		for _, s := range signalCycles {
+			answer += (s * cycleMap[s])
+		}
+	case "b":
+		crt_rows := make([][]string, 6)
+		for row := range crt_rows {
+			crt_rows[row] = make([]string, 40)
+		}
 
-	crt_rows := make([][]string, 6)
-	for row := range crt_rows {
-		crt_rows[row] = make([]string, 40)
-	}
+		for idx, pixel := range crt {
+			crt_rows[idx/40][idx%40] = pixel
+		}
 
-	for idx, pixel := range crt {
-		crt_rows[idx/40][idx%40] = pixel
-	}
-
-	for _, pixel := range crt_rows {
-		fmt.Println(pixel)
+		for _, pixel := range crt_rows {
+			fmt.Println(pixel)
+		}
 	}
 
 	return answer, nil

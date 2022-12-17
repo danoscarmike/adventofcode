@@ -49,7 +49,11 @@ func main() {
 	case "9b":
 		answer, err = day9("input/9.txt", 10)
 	case "10a":
-		answer, err = day10("input/10.txt")
+		answer, err = day10("input/10.txt", "a")
+	case "10b":
+		answer, err = day10("input/10.txt", "b")
+	case "11a":
+		answer, err = day11("input/11.txt")
 	}
 
 	check_error_panic(err)
