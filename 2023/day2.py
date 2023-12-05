@@ -2,6 +2,7 @@ from utilities import input
 
 cap = [12, 13, 14]
 
+
 def one(data: dict) -> int:
     possible_games = []
     for key in data.keys():
@@ -9,6 +10,7 @@ def one(data: dict) -> int:
             if data[key]["green"] <= 13:
                 if data[key]["blue"] <= 14:
                     possible_games.append(key)
+
     return sum(possible_games)
 
 
@@ -19,7 +21,7 @@ def two(data: dict) -> int:
         for color in data[key].keys():
             power = power * data[key][color]
         set_powers.append(power)
-            
+
     return sum(set_powers)
 
 
@@ -30,7 +32,7 @@ if __name__ == "__main__":
     for game in data:
         game = game.split(":")
         game_id = int(game[0].split(" ")[-1])
-        data_dict[game_id] = {"red":0, "green":0, "blue":0}
+        data_dict[game_id] = {"red": 0, "green": 0, "blue": 0}
         selections = [s.strip() for s in game[1].split(";")]
         for selection in selections:
             cubes = [s.strip() for s in selection.split(",")]
@@ -44,4 +46,3 @@ if __name__ == "__main__":
 
     print(f"Part 1: {one(data_dict)}")
     print(f"Part 2: {two(data_dict)}")
-
