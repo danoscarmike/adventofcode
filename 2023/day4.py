@@ -14,7 +14,7 @@ def get_matches(w: list, d: list) -> int:
 def one(winners: list, drawn: list) -> int:
     grand_total = 0
     for i in range(0, len(winners)):
-        matches = get_matches(winners[i], drawn[i]) 
+        matches = get_matches(winners[i], drawn[i])
         if matches > 0:
             card_value = pow(2, matches - 1)
             grand_total += card_value
@@ -25,8 +25,8 @@ def two(winners: list, drawn: list) -> int:
     copies = [1] * len(winners)
     for i in range(0, len(copies)):
         matches = get_matches(winners[i], drawn[i])
-        for j in range(1, matches+1):
-            copies[i+j] += (1 * copies[i])
+        for j in range(1, matches + 1):
+            copies[i + j] += 1 * copies[i]
 
     return sum(copies)
 
