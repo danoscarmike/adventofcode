@@ -70,9 +70,7 @@ if __name__ == "__main__":
         p = parse.parse("{}-to-{} map:", line)
         if p:
             maps_index += 1
-            section = p[0]
             continue
-
         r = [int(x) for x in line.split()]
         maps[maps_index].append([r[0], r[1], r[2]])
 
