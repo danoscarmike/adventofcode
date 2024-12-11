@@ -70,7 +70,7 @@ def part_one(good_updates) -> int:
     return total
 
 
-def part_two(sorted_updates) -> int:
+def part_two(rules, bad_updates) -> int:
     total = 0 
 
     sorted_updates = [sort_update(rules, update) for update in bad_updates]
@@ -86,4 +86,4 @@ if __name__ == "__main__":
     good_updates, bad_updates = triage_updates(rules, updates)
 
     print(f"Part One: {part_one(good_updates)}")
-    print(f"Part Two: {part_two(bad_updates)}")
+    print(f"Part Two: {part_two(rules, bad_updates)}")
