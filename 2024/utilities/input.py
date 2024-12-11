@@ -1,5 +1,3 @@
-import os
-
 from pathlib import Path
 
 
@@ -25,11 +23,14 @@ def read_file_to_string(file_path: str) -> str:
 
 
 # read rows of integers from a file into a list of lists
-def read_rows_from_file(file_path: str) -> list:
+def read_rows_from_file(file_path: str, int: bool = True) -> list:
     path = Path(BASE_PATH + file_path)
     rows = []
-    with open(file_path, "r") as f:
+    with open(path, "r") as f:
         for line in f.readlines():
-            rows.append(list(map(int, line.split())))
+            if int:
+                rows.append(list(map(int, line.split())))
+            else:
+                rows.append(line.strip())
 
     return rows
