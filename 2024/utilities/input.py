@@ -39,6 +39,6 @@ def read_rows_of_chars(path: str) -> list:
     rows = []
     with open(path, "r") as f:
         for line in f.readlines():
-            rows.append(list(line))
+            rows.append(list(line.strip()))
 
     return rows
