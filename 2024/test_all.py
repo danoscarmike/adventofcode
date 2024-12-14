@@ -1,11 +1,11 @@
 import unittest
 
-import day4, day5
-from utilities.input import read_rows_from_file
+import day4, day5, day6
+from utilities.input import read_rows_of_strings, read_rows_of_chars
 
 
 class TestDay4(unittest.TestCase):
-    grid = read_rows_from_file('test_4.txt', int=False)
+    grid = read_rows_of_strings('test_4.txt')
 
     def test_part_one(self):
         assert day4.part_one(self.grid, 'XMAS') == 18
@@ -22,5 +22,16 @@ class TestDay5(unittest.TestCase):
         assert day5.part_one(self.good_updates) == 143
     
     def test_part_two(self):
-        sorted_updates = [day5.sort_update(self.rules, update) for update in self.bad_updates]
-        assert day5.part_two(sorted_updates) == 123
+        assert day5.part_two(self.rules, self.bad_updates) == 123
+
+
+
+class TestDay6(unittest.TestCase):
+    grid = read_rows_of_chars('test_6.txt')
+
+    def test_part_one(self):
+        assert day6.part_one(self.grid) == 41
+    
+    def test_part_two(self):
+        assert day6.part_two(self.grid) == 6
+

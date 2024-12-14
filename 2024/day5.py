@@ -2,13 +2,13 @@ import re
 
 from collections import defaultdict
 
-from utilities.input import read_rows_from_file
+from utilities.input import read_rows_of_strings
 
 
 def read_input(file_name: str) -> tuple:
     rules = []
     updates = []
-    input = read_rows_from_file(file_name, int=False)
+    input = read_rows_of_strings(file_name)
     for line in input:
         pattern = r"(\d+)\|(\d+)"
         match = re.search(pattern, line)

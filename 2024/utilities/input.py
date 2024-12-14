@@ -22,15 +22,34 @@ def read_file_to_string(file_path: str) -> str:
         return f.read()
 
 
-# read rows of integers from a file into a list of lists
-def read_rows_from_file(file_path: str, int: bool = True) -> list:
+# read rows as strings from a file into a list of lists
+def read_rows_of_strings(file_path: str) -> list:
     path = Path(BASE_PATH + file_path)
     rows = []
     with open(path, "r") as f:
         for line in f.readlines():
-            if int:
-                rows.append(list(map(int, line.split())))
-            else:
-                rows.append(line.strip())
+            rows.append(line.strip())
+
+    return rows
+
+
+# read rows of integers from a file into a list of lists
+def read_rows_of_ints(file_path: str) -> list:
+    path = Path(BASE_PATH + file_path)
+    rows = []
+    with open(path, "r") as f:
+        for line in f.readlines():
+            rows.append(list(map(int, line.split())))
+
+    return rows
+
+
+# read rows of chars from a file into a list of lists
+def read_rows_of_chars(file_path: str) -> list:
+    path = Path(BASE_PATH + file_path)
+    rows = []
+    with open(path, "r") as f:
+        for line in f.readlines():
+            rows.append(list(line))
 
     return rows

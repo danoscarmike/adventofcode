@@ -1,5 +1,5 @@
 
-from utilities.input import read_rows_from_file
+from utilities.input import read_rows_of_strings
 
 
 def part_one(grid, word) -> int:
@@ -61,6 +61,6 @@ def part_two(grid) -> int:
 
 
 if __name__ == "__main__":
-    grid = read_rows_from_file('4.txt', int=False)
+    grid = read_rows_of_strings('4.txt')
     print(f"Part One: {part_one(grid, "XMAS")}")
     print(f"Part Two: {part_two(grid)}")
