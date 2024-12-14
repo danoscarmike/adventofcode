@@ -4,7 +4,7 @@ import unittest
 sys.path.append("/Users/danielomeara/code/adventofcode/2024")
 sys.path.append("/Users/danielomeara/code/adventofcode/2024/utilities")
 
-import day1, day2, day3, day4, day5, day6
+import day1, day2, day3, day4, day5, day6, day7
 from input import (
     read_columns_from_file,
     read_rows_of_strings,
@@ -74,3 +74,15 @@ class TestDay6(unittest.TestCase):
 
     def test_part_two(self):
         assert day6.part_two(self.grid) == 6
+
+
+class TestDay7(unittest.TestCase):
+    lines = read_rows_of_strings("input/test_7.txt")
+    values = [int(line.split()[0][0:-1]) for line in lines]
+    operands = [[int(x.strip()) for x in line.split()[1:]] for line in lines]
+
+    def test_part_one(self):
+        assert day7.solve(self.values, self.operands, ['*', '+']) == 3749
+
+    def test_part_two(self):
+        assert day7.solve(self.values, self.operands, ['*', '+', '||']) == 11387
