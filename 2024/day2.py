@@ -1,7 +1,4 @@
-from utilities.input import read_rows_from_file
-
-
-reports = read_rows_from_file("2.txt")
+from utilities.input import read_rows_of_ints
 
 
 def get_differences(row: list) -> list:
@@ -28,7 +25,7 @@ def report_is_tolerable(row: list) -> bool:
         return True
 
     for i in range(len(row)):
-        new_row = row[0:i] + row[i + 1 : len(row)]        
+        new_row = row[0:i] + row[i + 1 : len(row)]
         new_differences = get_differences(new_row)
         if report_is_safe(new_differences):
             return True
@@ -36,7 +33,7 @@ def report_is_tolerable(row: list) -> bool:
     return False
 
 
-def part_one() -> int:
+def part_one(reports) -> int:
     safe = 0
 
     # create a list of the differences between list elements
@@ -48,7 +45,7 @@ def part_one() -> int:
     return safe
 
 
-def part_two() -> int:
+def part_two(reports) -> int:
     safe = 0
 
     for row in reports:
@@ -59,5 +56,6 @@ def part_two() -> int:
 
 
 if __name__ == "__main__":
-    print(f"Part One: {part_one()}")
-    print(f"Part Two: {part_two()}")
+    reports = read_rows_of_ints("input/2.txt")
+    print(f"Part One: {part_one(reports)}")
+    print(f"Part Two: {part_two(reports)}")

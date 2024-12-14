@@ -18,7 +18,7 @@ def read_input(file_name: str) -> tuple:
             pass
         else:
             updates.append([int(x) for x in line.split(",")])
-    
+
     rule_dict = defaultdict(set)
     for rule in rules:
         rule_dict[rule[0]].add(rule[1])
@@ -51,7 +51,7 @@ def triage_updates(rule_dict: defaultdict, updates: list) -> tuple:
 def sort_update(rule_dict: defaultdict, update: list) -> list:
     if is_valid_page_order(rule_dict, update):
         return update
-    
+
     sorted_update = update.copy()
     for i in range(len(update)):
         for j in range(i + 1, len(update)):
@@ -63,15 +63,15 @@ def sort_update(rule_dict: defaultdict, update: list) -> list:
 
 def part_one(good_updates) -> int:
     total = 0
-    
+
     for update in good_updates:
         total += update[len(update) // 2]
-        
+
     return total
 
 
 def part_two(rules, bad_updates) -> int:
-    total = 0 
+    total = 0
 
     sorted_updates = [sort_update(rules, update) for update in bad_updates]
 
@@ -82,8 +82,7 @@ def part_two(rules, bad_updates) -> int:
 
 
 if __name__ == "__main__":
-    rules, updates = read_input("5.txt")
+    rules, updates = read_input("input/5.txt")
     good_updates, bad_updates = triage_updates(rules, updates)
-
     print(f"Part One: {part_one(good_updates)}")
     print(f"Part Two: {part_two(rules, bad_updates)}")

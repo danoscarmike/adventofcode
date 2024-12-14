@@ -1,12 +1,9 @@
 from utilities.input import read_columns_from_file
 
 
-(col1, col2) = read_columns_from_file("1.txt", 2)
-
-
-def part_one() -> int:
-    left = col1.copy()
-    right = col2.copy()
+def part_one(cols) -> int:
+    left = cols[0].copy()
+    right = cols[1].copy()
 
     list_distance = 0
 
@@ -18,12 +15,12 @@ def part_one() -> int:
     return list_distance
 
 
-def part_two() -> int:
-    left = col1.copy()
-    right = col2.copy()
-    
+def part_two(cols) -> int:
+    left = cols[0].copy()
+    right = cols[1].copy()
+
     similarity = 0
-    
+
     for element in left:
         similarity += right.count(element) * element
 
@@ -31,5 +28,6 @@ def part_two() -> int:
 
 
 if __name__ == "__main__":
-    print(f"Part One: {part_one()}")
-    print(f"Part Two: {part_two()}")
+    cols = read_columns_from_file("input/1.txt", 2)
+    print(f"Part One: {part_one(cols)}")
+    print(f"Part Two: {part_two(cols)}")

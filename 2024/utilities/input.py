@@ -1,12 +1,5 @@
-from pathlib import Path
-
-
-BASE_PATH = "/Users/danielomeara/code/adventofcode/2024/input/"
-
 # read columns of integers from a file into a list of lists
-def read_columns_from_file(file_path: str, cols) -> list:
-    path = Path(BASE_PATH + file_path)
-
+def read_columns_from_file(path: str, cols) -> list:
     columns = [[] for i in range(cols)]
     with open(path, "r") as f:
         for line in f.readlines():
@@ -16,15 +9,13 @@ def read_columns_from_file(file_path: str, cols) -> list:
     return columns
 
 
-def read_file_to_string(file_path: str) -> str:
-    path = Path(BASE_PATH + file_path)
+def read_file_to_string(path: str) -> str:
     with open(path, "r") as f:
         return f.read()
 
 
 # read rows as strings from a file into a list of lists
-def read_rows_of_strings(file_path: str) -> list:
-    path = Path(BASE_PATH + file_path)
+def read_rows_of_strings(path: str) -> list:
     rows = []
     with open(path, "r") as f:
         for line in f.readlines():
@@ -34,8 +25,7 @@ def read_rows_of_strings(file_path: str) -> list:
 
 
 # read rows of integers from a file into a list of lists
-def read_rows_of_ints(file_path: str) -> list:
-    path = Path(BASE_PATH + file_path)
+def read_rows_of_ints(path: str) -> list:
     rows = []
     with open(path, "r") as f:
         for line in f.readlines():
@@ -45,8 +35,7 @@ def read_rows_of_ints(file_path: str) -> list:
 
 
 # read rows of chars from a file into a list of lists
-def read_rows_of_chars(file_path: str) -> list:
-    path = Path(BASE_PATH + file_path)
+def read_rows_of_chars(path: str) -> list:
     rows = []
     with open(path, "r") as f:
         for line in f.readlines():

@@ -3,15 +3,12 @@ import re
 from utilities.input import read_file_to_string
 
 
-memory = read_file_to_string("3.txt")
-
-
 def find_muls(string: str) -> list:
     pattern = r"mul\(\d{1,3},\d{1,3}\)"
     return re.findall(pattern, string)
 
 
-def part_one() -> int:
+def part_one(memory) -> int:
     total = 0
 
     matches = find_muls(memory)
@@ -24,7 +21,7 @@ def part_one() -> int:
     return total
 
 
-def part_two() -> int:
+def part_two(memory) -> int:
     total = 0
 
     pattern_groups = r"do\(\)|don\'t\(\)|mul\(\d{1,3},\d{1,3}\)"
@@ -41,11 +38,12 @@ def part_two() -> int:
             if do:
                 pattern = r"(\d+),(\d+)"
                 mul_match = re.search(pattern, match)
-                total += int(mul_match.group(1)) * int(mul_match.group(2))    
+                total += int(mul_match.group(1)) * int(mul_match.group(2))
 
     return total
 
 
 if __name__ == "__main__":
-    print(f"Part One: {part_one()}")
-    print(f"Part Two: {part_two()}")
+    memory = read_file_to_string("input/3.txt")
+    print(f"Part One: {part_one(memory)}")
+    print(f"Part Two: {part_two(memory)}")
