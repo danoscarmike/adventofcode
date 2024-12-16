@@ -30,6 +30,15 @@ def find_similar_antennas(grid):
     return antennas
 
 
+def find_next_antinode(grid, antinode, offset, direction) -> tuple:
+    if direction == "up":
+        next_antinode = (antinode[0] - offset[0], antinode[1] - offset[1])
+    else:
+        next_antinode = (antinode[0] + offset[0], antinode[1] + offset[1])
+    
+    return is_valid_location(grid, next_antinode), next_antinode
+
+
 def find_all_antinodes(grid, antenna_pair, harmonics=False):
     antinodes = []
     offset = (antenna_pair[1][0] - antenna_pair[0][0], antenna_pair[1][1] - antenna_pair[0][1])
@@ -45,22 +54,18 @@ def find_all_antinodes(grid, antenna_pair, harmonics=False):
         # Check for additional antinodes (upward)
         on_grid = True
         while on_grid:
-            next_up_antinode = up_antinode[0] - offset[0], up_antinode[1] - offset[1]
-            if is_valid_location(grid, next_up_antinode):
-                antinodes.append(next_up_antinode)
+            on_grid, next_up_antinode = find_next_antinode(grid, up_antinode, offset, "up")
+            if on_grid:
                 up_antinode = next_up_antinode
-            else:
-                on_grid = False
+                antinodes.append(up_antinode)
         
         # Check for additional antinodes (downward)
         on_grid = True
         while on_grid:
-            next_down_antinode = down_antinode[0] + offset[0], down_antinode[1] + offset[1]
-            if is_valid_location(grid, next_down_antinode):
-                antinodes.append(next_down_antinode)
+            on_grid, next_down_antinode = find_next_antinode(grid, down_antinode, offset, "down")
+            if on_grid:
                 down_antinode = next_down_antinode
-            else:
-                on_grid = False
+                antinodes.append(down_antinode)
     
     return antinodes
 
