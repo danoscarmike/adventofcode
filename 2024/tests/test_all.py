@@ -4,7 +4,7 @@ import unittest
 sys.path.append("/Users/danielomeara/code/adventofcode/2024")
 sys.path.append("/Users/danielomeara/code/adventofcode/2024/utilities")
 
-import day1, day2, day3, day4, day5, day6, day7, day8
+import day1, day2, day3, day4, day5, day6, day7, day8, day9
 from input import (
     read_columns_from_file,
     read_rows_of_strings,
@@ -96,3 +96,13 @@ class TestDay8(unittest.TestCase):
 
     def test_part_two(self):
         assert day8.part_two(self.grid) == 34
+
+
+class TestDay9(unittest.TestCase):
+    disk_map = read_file_to_string("input/test_9.txt")
+
+    def test_part_one(self):
+        assert day9.part_one(self.disk_map) == 1928
+
+    def test_part_two(self):
+        assert day9.part_two(self.disk_map) == 2858
