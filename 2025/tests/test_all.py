@@ -4,7 +4,7 @@ import unittest
 sys.path.append("/Users/danielomeara/code/adventofcode/2025")
 sys.path.append("/Users/danielomeara/code/adventofcode/2025/utilities")
 
-import day1, day2
+import day1, day2, day3
 from input import read_rows_of_strings, read_line
 
 
@@ -27,6 +27,16 @@ class TestDay2(unittest.TestCase):
 
     def test_part_two(self):
         assert day2.solve(self.ranges, day2.detect_dupe_two) == 4174379265
+
+
+class TestDay3(unittest.TestCase):
+    lines = read_rows_of_strings("input/test_3.txt")
+
+    def test_part_one(self):
+        assert day3.solve(self.lines) == 357
+
+    def test_part_two(self):
+        assert day3.solve(self.lines, number_of_batteries=12) == 3121910778619
 
 
 if __name__ == "__main__":
