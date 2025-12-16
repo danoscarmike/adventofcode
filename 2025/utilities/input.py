@@ -5,3 +5,8 @@ def read_rows_of_strings(path: str) -> list:
             rows.append(line.strip())
 
     return rows
+
+
+def read_line(path: str) -> str:
+    with open(path, "r") as f:
+        return f.readline().strip()
